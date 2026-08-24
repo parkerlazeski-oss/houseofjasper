@@ -376,6 +376,62 @@
   @media (max-width:760px){.story-grid{grid-template-columns:1fr}.story-portrait{max-width:270px;margin:0 auto}}
   .story-portrait{margin:0;padding:12px 12px 0;border:1px solid var(--band-line);border-radius:999px 999px 2px 2px}
   .story-portrait img{width:100%;display:block;border-radius:987px 987px 2px 2px}
+  /* ---------- DESKTOP FLOURISHES ---------- */
+  @media (min-width:761px){
+    .photo-wide{position:relative}
+    .photo-wide::after{
+      content:"";position:absolute;inset:16px -16px auto 16px;height:calc(100% - 32px);
+      border:1px solid var(--gold-soft);border-radius:2px;opacity:.55;pointer-events:none;
+    }
+    .story-portrait{position:relative;top:8px}
+  }
+
+  /* ---------- MOBILE TREATMENT ---------- */
+  @media (max-width:640px){
+    body{font-size:16px;line-height:1.7}
+    section{padding:60px 0 8px}
+    .hero{min-height:100svh;padding:80px 22px 96px}
+    .breath-ring{width:112px;height:112px;margin-bottom:36px}
+    .hero-meta{gap:10px;margin-bottom:36px}
+    .meta-pill{padding:9px 18px;font-size:.68rem}
+    .lede{font-size:1.4rem}
+    .band{margin-top:64px;padding:68px 22px}
+    .band p{font-size:1.18rem}
+    .invite-card{padding:40px 22px}
+    .invite-facts{gap:10px}
+    .fact{min-width:0;flex:1;padding:16px 12px}
+    .fact .n{font-size:1.9rem}
+    .form-card{padding:34px 20px}
+    .pairs li{padding:22px 2px}
+    .pairs .claim{font-size:1.22rem}
+    .proof{padding:34px 26px}
+    .photo-sec{padding:52px 0 0}
+    .remember{font-size:1.22rem;margin-top:44px}
+    .steps{margin:34px 0 40px}
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ---------- MOBILE STICKY CTA ---------- */
+  .mobile-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    display:none;align-items:center;justify-content:space-between;gap:14px;
+    background:var(--band);color:var(--band-ink);
+    border-top:1px solid var(--band-line);
+    padding:12px 18px calc(12px + env(safe-area-inset-bottom));
+    transform:translateY(110%);transition:transform .45s ease;
+  }
+  .mobile-cta.show{transform:none}
+  .mobile-cta .mc-txt{display:flex;flex-direction:column;line-height:1.35;min-width:0}
+  .mobile-cta .mc-txt b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:1.05rem;white-space:nowrap}
+  .mobile-cta .mc-txt span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft)}
+  .mobile-cta .mc-btn{padding:13px 26px;font-size:.7rem;flex:none}
+  @media (max-width:760px){.mobile-cta{display:flex}}
+  @media (prefers-reduced-motion: reduce){.mobile-cta{transition:none}}
+
   footer{
     border-top:1px solid var(--line);margin-top:96px;
     padding:44px 24px 56px;text-align:center;
@@ -617,6 +673,11 @@
   <p class="tag">Wellness · Mindfulness · Embodied Practice</p>
 </footer>
 
+<div class="mobile-cta" id="mobileCta" aria-hidden="true">
+  <div class="mc-txt"><b>The 22 Day Reset</b><span>Begins 11·11 · $111</span></div>
+  <a class="btn btn-gold mc-btn" href="#reserve">Reserve</a>
+</div>
+
 <script>
 (function(){
   var radios=document.querySelectorAll('.radio-opt');
@@ -666,6 +727,34 @@
     params.push('entry.1502971467='+encodeURIComponent(contact.value));
     window.open(FORM+'?'+params.join('&'),'_blank','noopener');
   });
+
+  var sections=document.querySelectorAll('section, .band, footer');
+  sections.forEach(function(s){s.classList.add('reveal')});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{rootMargin:'0px 0px -8% 0px'});
+    sections.forEach(function(s){io.observe(s)});
+  }else{
+    sections.forEach(function(s){s.classList.add('in')});
+  }
+
+  var bar=document.getElementById('mobileCta');
+  var reserve=document.getElementById('reserve');
+  var reserveVisible=false;
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){reserveVisible=e.isIntersecting;update()});
+    },{threshold:.05}).observe(reserve);
+  }
+  function update(){
+    var past=window.scrollY>window.innerHeight*.85;
+    var show=past&&!reserveVisible;
+    bar.classList.toggle('show',show);
+    bar.setAttribute('aria-hidden',show?'false':'true');
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
 })();
 </script>
 

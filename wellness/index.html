@@ -485,6 +485,25 @@
     margin-top:6px;
   }
 
+  @media (max-width:640px){
+    body{font-size:16px;line-height:1.7}
+    section.practice{padding:60px 0 8px}
+    .hero{min-height:100svh;padding:80px 22px 72px}
+    .breath-ring{width:112px;height:112px;margin-bottom:36px}
+    .intro{padding:64px 0 16px}
+    .intro p.lede{font-size:1.32rem}
+    .band{padding:72px 20px 80px;margin-top:64px}
+    .litany .word{font-size:1.55rem}
+    .ritual{padding:28px 22px}
+    .breath-card{padding:34px 22px}
+    .remember{font-size:1.2rem}
+    .closing{padding:64px 0 32px}
+    .cta-card{padding:36px 24px}
+  }
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
   footer{
     border-top:1px solid var(--line);
     margin-top:72px;
@@ -763,6 +782,15 @@
     }
     next();
   });
+
+  var sections=document.querySelectorAll('section, .band, .closing, footer');
+  sections.forEach(function(s){s.classList.add('reveal')});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{rootMargin:'0px 0px -8% 0px'});
+    sections.forEach(function(s){io.observe(s)});
+  }else{sections.forEach(function(s){s.classList.add('in')})}
 })();
 </script>
 
