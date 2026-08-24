@@ -418,10 +418,17 @@
     .steps{margin:34px 0 40px}
   }
 
-  /* ---------- SCROLL REVEAL ---------- */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+  /* ---------- SCROLL REVEAL (CSS-only, safe fallback = visible) ---------- */
+  @media (prefers-reduced-motion: no-preference){
+    @supports (animation-timeline: view()){
+      section, .band, footer{
+        animation:fadeUp .9s ease both;
+        animation-timeline:view();
+        animation-range:entry 0% entry 35%;
+      }
+    }
+  }
+  @keyframes fadeUp{from{opacity:.001;transform:translateY(24px)}to{opacity:1;transform:none}}
 
   /* ---------- MOBILE STICKY CTA ---------- */
   .mobile-cta{
@@ -566,6 +573,10 @@
     <span class="label eyebrow">What begins to change</span>
     <h2>Quiet, Powerful Transformation</h2>
     <div class="rule-gold"></div>
+    <figure class="photo-wide" style="margin:36px 0 44px">
+      <img src="img/mel-circle.jpg" alt="Melissa leading a standing meditation, hands at heart center">
+      <figcaption>Presence, practiced together.</figcaption>
+    </figure>
     <ul class="shifts">
       <li><span class="mark">✦</span><div class="s"><b>Your stress softens.</b><span>You wake with more breath, less bracing. Your body begins to trust calm.</span></div></li>
       <li><span class="mark">✦</span><div class="s"><b>You move with less rushing.</b><span>Grounded and at ease — you respond instead of react.</span></div></li>
@@ -600,6 +611,10 @@
 <!-- INVITATION -->
 <section>
   <div class="wrap">
+    <figure class="photo-wide" style="margin-bottom:44px">
+      <img src="img/mel-joy.jpg" alt="Melissa laughing with students after class">
+      <figcaption>You return to yourself — and it shows.</figcaption>
+    </figure>
     <div class="invite-card">
       <span class="label">The Invitation</span>
       <p class="lede" style="margin-top:14px">Peace doesn’t begin when life gets easier — <i>it begins the moment you decide to return to yourself.</i></p>
@@ -740,32 +755,18 @@
     window.open(FORM+'?'+params.join('&'),'_blank','noopener');
   });
 
-  var sections=document.querySelectorAll('section, .band, footer');
-  sections.forEach(function(s){s.classList.add('reveal')});
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-    },{rootMargin:'0px 0px -8% 0px'});
-    sections.forEach(function(s){io.observe(s)});
-  }else{
-    sections.forEach(function(s){s.classList.add('in')});
-  }
-
   var bar=document.getElementById('mobileCta');
   var reserve=document.getElementById('reserve');
-  var reserveVisible=false;
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){
-      es.forEach(function(e){reserveVisible=e.isIntersecting;update()});
-    },{threshold:.05}).observe(reserve);
-  }
   function update(){
+    var r=reserve.getBoundingClientRect();
+    var reserveVisible=r.top<window.innerHeight&&r.bottom>0;
     var past=window.scrollY>window.innerHeight*.85;
     var show=past&&!reserveVisible;
     bar.classList.toggle('show',show);
     bar.setAttribute('aria-hidden',show?'false':'true');
   }
   window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
   update();
 })();
 </script>
