@@ -511,6 +511,18 @@
   }
   @keyframes fadeUp{from{opacity:.001;transform:translateY(24px)}to{opacity:1;transform:none}}
 
+  /* luxury pass: hero drop-in */
+  @media (prefers-reduced-motion: no-preference){
+    .hero > *{opacity:0;animation:heroIn 1.3s ease forwards}
+    .hero .breath-ring{animation:heroIn 1.6s ease .1s forwards, breathe 9s ease-in-out 1.8s infinite}
+    .hero .label{animation-delay:.9s}
+    .hero h1{animation-delay:1.4s}
+    .hero .hero-sub{animation-delay:2s}
+    .hero .byline{animation-delay:2.5s}
+    .hero .hero-hint{animation-delay:3s}
+  }
+  @keyframes heroIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
   footer{
     border-top:1px solid var(--line);
     margin-top:72px;
