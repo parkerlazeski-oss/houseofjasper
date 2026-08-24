@@ -534,7 +534,7 @@
 </div>
 
 <div class="wrap intro">
-  <p class="lede">You don’t need to completely change your routine to support your well‑being. Small, intentional moments throughout the day can make a meaningful difference in how your body feels, how you manage stress, and how you show up for your work.</p>
+  <p class="lede" style="text-align:center"><b>You don’t need to completely change your routine to support your well‑being.</b> Small, intentional moments throughout the day can make a meaningful difference in how your body feels, how you manage stress, and how you show up for your work.</p>
   <div class="intro-cards">
     <div class="note-card">
       <span class="label">The Invitation</span>
@@ -573,6 +573,10 @@
         <i>soften your jaw</i><span class="arr">→</span>
         <i>lengthen through the crown of your head</i><span class="arr">→</span>
         <i>take one slow breath</i>
+      </div>
+      <div style="text-align:center">
+        <button class="sigh-btn" id="postureBtn" type="button">Try this 20‑second reset now</button>
+        <p class="sigh-cue" id="postureCue" aria-live="polite"></p>
       </div>
     </div>
   </div>
@@ -727,8 +731,8 @@
 <!-- MICRO-PRACTICE BAND -->
 <div class="band">
   <div class="wrap">
-    <span class="label">When you only have a minute</span>
-    <h2 class="serif">Your Micro‑Practice</h2>
+    <span class="label">Your Micro‑Practice</span>
+    <h2 class="serif">When you only have a minute, this is how you come back to yourself.</h2>
     <ul class="litany">
       <li><span class="word">Ground</span><p>Feel the soles of your feet and the support beneath you.</p></li>
       <li><span class="word">Soften</span><p>Unclench your jaw. Relax your shoulders. Feel the palms of your hands.</p></li>
@@ -736,6 +740,10 @@
       <li><span class="word">Notice</span><p>Where are you tightening, or holding tension in your body right now?</p></li>
       <li><span class="word">Choose</span><p>What would support you in this next moment to become present &amp; available?</p></li>
     </ul>
+    <div style="text-align:center;margin-top:40px">
+      <button class="sigh-btn" id="microBtn" type="button">Guide me through it</button>
+      <p class="sigh-cue" id="microCue" aria-live="polite" style="color:var(--band-soft)"></p>
+    </div>
   </div>
 </div>
 
@@ -793,5 +801,42 @@
 })();
 </script>
 
+
+<script>
+(function(){
+  function wire(btnId,cueId,steps){
+    var btn=document.getElementById(btnId),cue=document.getElementById(cueId),running=false;
+    btn.addEventListener('click',function(){
+      if(running)return;
+      running=true;btn.disabled=true;btn.style.opacity=.5;
+      var i=0;
+      (function next(){
+        if(i>=steps.length){cue.textContent='';btn.disabled=false;btn.style.opacity=1;running=false;return;}
+        cue.textContent=steps[i][0];
+        setTimeout(next,steps[i][1]);i++;
+      })();
+    });
+  }
+  wire('postureBtn','postureCue',[
+    ["Breathe in through your nose…",4200],
+    ["Take a long, slow exhale out your mouth…",5200],
+    ["Relax the soles of your feet…",4200],
+    ["Let your thighs feel heavy…",4200],
+    ["Soften your shoulders…",4200],
+    ["Relax your jaw…",4200],
+    ["Take one slow breath in…",4200],
+    ["…and one long breath out.",5200],
+    ["Beautiful. Notice how you feel.",3200]
+  ]);
+  wire('microBtn','microCue',[
+    ["GROUND — feel the soles of your feet and the support beneath you.",6200],
+    ["SOFTEN — unclench your jaw. Relax your shoulders. Feel the palms of your hands.",6800],
+    ["BREATHE — take an intentional inhale… and a slow, long exhale.",7200],
+    ["NOTICE — where are you tightening, or holding tension right now?",6200],
+    ["CHOOSE — what would support you in becoming present and available?",6200],
+    ["Take one thing with you. 🌿",4200]
+  ]);
+})();
+</script>
 </body>
 </html>

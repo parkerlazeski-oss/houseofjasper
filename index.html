@@ -344,6 +344,10 @@
   .radio-opt.sel{border-color:var(--gold);background:var(--surface-2);color:var(--ink)}
   .radio-opt:focus-within{outline:2px solid var(--focus);outline-offset:2px}
 
+  .cta-micro{
+    font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;
+    font-size:1rem;color:var(--stone);
+  }
   .pay-note{
     margin-top:34px;
     border-left:2px solid var(--gold);
@@ -388,22 +392,42 @@
   @media (max-width:680px){.tmls{grid-template-columns:1fr}}
   .tml{
     background:var(--surface);border:1px solid var(--line);border-radius:2px;
-    box-shadow:var(--shadow);padding:32px 30px 26px;display:flex;flex-direction:column;
+    box-shadow:var(--shadow);padding:32px 30px 26px;position:relative;
+    display:flex;flex-direction:column;
   }
-  .tml .qm{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.6rem;line-height:1;color:var(--gold-soft);margin-bottom:10px}
-  .tml p{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.18rem;line-height:1.55;color:var(--ink);flex:1}
+  .tml .qm{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:2.6rem;line-height:1;color:var(--gold-soft);
+    margin-bottom:10px;
+  }
+  .tml p{
+    font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;
+    font-size:1.18rem;line-height:1.55;color:var(--ink);flex:1;
+  }
   .tml p b{font-style:italic;color:var(--gold);font-weight:600}
-  .tml .who{margin-top:18px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+  .tml .who{
+    margin-top:18px;font-family:'Mulish',sans-serif;
+    font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--stone);
+  }
+
   .story-tease{
     font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;
     font-size:1.15rem;line-height:1.6;color:var(--ink-soft);
-    border-left:2px solid var(--gold-soft);padding-left:20px;margin-top:26px;max-width:54ch;
+    border-left:2px solid var(--gold-soft);
+    padding-left:20px;margin-top:26px;max-width:54ch;
   }
   .story-tease a{color:var(--gold);text-decoration:none;font-style:normal;font-family:'Mulish',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
   .story-tease a:hover{text-decoration:underline}
-  .guarantee{border:1px solid var(--line);border-radius:2px;max-width:440px;margin:0 auto 32px;padding:22px 28px}
+  .guarantee{
+    border:1px solid var(--line);border-radius:2px;
+    max-width:440px;margin:0 auto 32px;padding:22px 28px;
+  }
   .guarantee .label{display:block;margin-bottom:8px}
-  .guarantee p{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.12rem;line-height:1.55;color:var(--ink);max-width:38ch;margin:0 auto}
+  .guarantee p{
+    font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;
+    font-size:1.12rem;line-height:1.55;color:var(--ink);max-width:38ch;margin:0 auto;
+  }
   .guarantee p b{color:var(--gold);font-style:italic}
 
   /* ---------- DESKTOP FLOURISHES ---------- */
@@ -511,6 +535,40 @@
   </div>
 </section>
 
+<!-- MICRO PRACTICES -->
+<section>
+  <div class="wrap">
+    <span class="label eyebrow">Micro practices · Major shifts</span>
+    <h2>This Is How Change Really Happens</h2>
+    <div class="rule-gold"></div>
+    <p class="body">You don’t need hours of meditation, a perfect routine, or a retreat to change your life. You just need <b>small, repeatable moments</b> that teach your body how to breathe again.</p>
+    <div class="proof">
+      <p class="q">Your nervous system doesn’t change through pressure — <span>it changes through proof.</span></p>
+    </div>
+    <p class="body" style="margin-top:34px">A few minutes a day — practiced with presence — can rewire more than any breakthrough ever will. When your body feels safe, consistency stops being effort — it becomes your nature. By the end of these 22 days, you won’t just understand calm — <b>you’ll embody it.</b> In conversations. In challenges. In real life.</p>
+  </div>
+</section>
+
+<!-- STORY BAND -->
+<div class="band" id="story">
+  <div class="wrap">
+    <span class="label eyebrow">The story behind the reset</span>
+    <h2>I Didn’t Create This From Theory</h2>
+    <div class="rule-gold" style="margin-bottom:36px"></div>
+    <div class="story-grid">
+      <figure class="story-portrait"><img src="img/mel-portrait.jpg" alt="Melissa Rose"></figure>
+      <div class="story-text">
+    <p>I created it because I needed it. From 2021 to early 2024, life kept moving on the outside… but inside, everything went gray. It wasn’t chaos — it was a quiet hollow. Joy felt distant. My nervous system swung between fight, flight, and freeze, and there were days I wondered if I’d ever feel like myself again.</p>
+    <p>I could guide others into calm — yet I couldn’t always reach it within myself. Some days, all I could do was place one hand on my heart, one on my belly, and breathe through a single moment.</p>
+    <p>There was no sudden breakthrough. No morning I woke up healed. Only small practices — breaths, pauses, gentle acts of regulation. <b>Repetition became medicine.</b></p>
+    <p>Over time, my breath softened. Color returned. Peace stopped being something I chased — and became something I built. I still practice this work daily — not because I’m broken, but because this is how I stay whole.</p>
+    <p class="hl">This isn’t a program. It’s a return — a remembering of the calm that’s always been yours.</p>
+    <p class="sign">With you, breath by breath —<span class="name">Melissa Rose 🌹</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOR YOU IF -->
 <section>
   <div class="wrap">
@@ -558,30 +616,16 @@
         <p>Light reminders to help you stay consistent as your new rhythm takes shape.</p>
       </div>
       <div class="inside-card">
-        <span class="label">🏆 Three Live Sessions</span>
+        <span class="label">🏆 Three Guided Sessions</span>
         <h3>Release · Regulate · Integrate</h3>
-        <p>Guided experiences to deepen and anchor your reset.</p>
+        <p>Guided experiences to deepen nervous system healing — and truly reset your system from the root.</p>
         <p>Each session blends clearing, embodiment, and integration — <b>a reset within the reset</b>.</p>
       </div>
     </div>
     <figure class="photo-arch" style="margin-bottom:0">
       <img src="img/mel-bowls.jpg" alt="Melissa Rose playing crystal sound bowls at golden hour">
     </figure>
-    <p class="photo-arch-cap">Release · Regulate · Integrate — the live sessions.</p>
-  </div>
-</section>
-
-<!-- MICRO PRACTICES -->
-<section>
-  <div class="wrap">
-    <span class="label eyebrow">Micro practices · Major shifts</span>
-    <h2>This Is How Change Really Happens</h2>
-    <div class="rule-gold"></div>
-    <p class="body">You don’t need hours of meditation, a perfect routine, or a retreat to change your life. You just need <b>small, repeatable moments</b> that teach your body how to breathe again.</p>
-    <div class="proof">
-      <p class="q">Your nervous system doesn’t change through pressure — <span>it changes through proof.</span></p>
-    </div>
-    <p class="body" style="margin-top:34px">A few minutes a day — practiced with presence — can rewire more than any breakthrough ever will. When your body feels safe, consistency stops being effort — it becomes your nature. By the end of these 22 days, you won’t just understand calm — <b>you’ll embody it.</b> In conversations. In challenges. In real life.</p>
+    <p class="photo-arch-cap">Release · Regulate · Integrate — the guided sessions.</p>
   </div>
 </section>
 
@@ -605,26 +649,6 @@
     <p class="remember">Life stops feeling like something to manage — <span>and starts feeling like something you can meet.</span></p>
   </div>
 </section>
-
-<!-- STORY BAND -->
-<div class="band" id="story">
-  <div class="wrap">
-    <span class="label eyebrow">The story behind the reset</span>
-    <h2>I Didn’t Create This From Theory</h2>
-    <div class="rule-gold" style="margin-bottom:36px"></div>
-    <div class="story-grid">
-      <figure class="story-portrait"><img src="img/mel-portrait.jpg" alt="Melissa Rose"></figure>
-      <div class="story-text">
-    <p>I created it because I needed it. From 2021 to early 2024, life kept moving on the outside… but inside, everything went gray. It wasn’t chaos — it was a quiet hollow. Joy felt distant. My nervous system swung between fight, flight, and freeze, and there were days I wondered if I’d ever feel like myself again.</p>
-    <p>I could guide others into calm — yet I couldn’t always reach it within myself. Some days, all I could do was place one hand on my heart, one on my belly, and breathe through a single moment.</p>
-    <p>There was no sudden breakthrough. No morning I woke up healed. Only small practices — breaths, pauses, gentle acts of regulation. <b>Repetition became medicine.</b></p>
-    <p>Over time, my breath softened. Color returned. Peace stopped being something I chased — and became something I built. I still practice this work daily — not because I’m broken, but because this is how I stay whole.</p>
-    <p class="hl">This isn’t a program. It’s a return — a remembering of the calm that’s always been yours.</p>
-    <p class="sign">With you, breath by breath —<span class="name">Melissa Rose 🌹</span></p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- CLIENT LOVE -->
 <section>
@@ -686,8 +710,8 @@
     <div class="rule-gold"></div>
     <div class="steps">
       <div class="step"><span class="dot">i.</span><span class="t">Your details</span></div>
-      <div class="step"><span class="dot">ii.</span><span class="t">Pay via Venmo</span></div>
-      <div class="step"><span class="dot">iii.</span><span class="t">Attach receipt &amp; submit</span></div>
+      <div class="step"><span class="dot">ii.</span><span class="t">Secure checkout</span></div>
+      <div class="step"><span class="dot">iii.</span><span class="t">You're in</span></div>
     </div>
 
     <div class="form-card">
@@ -729,17 +753,12 @@
         </div>
       </div>
 
-      <div class="pay-note">
-        <span class="label">Step ii — Secure your space</span>
-        <p>Complete your <b>$111</b> payment via Venmo to <a class="venmo" href="https://venmo.com/meliissarose" target="_blank" rel="noopener">@meliissarose</a>, and take a screenshot of your payment confirmation — you’ll attach it in the final step. 🌸</p>
-      </div>
-
       <div class="form-actions">
-        <a class="btn btn-ghost" href="https://venmo.com/meliissarose" target="_blank" rel="noopener">Pay $111 on Venmo</a>
-        <button class="btn btn-gold" id="continueBtn" type="button">Continue — attach receipt &amp; submit</button>
+        <button class="btn btn-gold" id="continueBtn" type="button">Yes — I’m ready to reset</button>
+        <span class="cta-micro">22 days · a few minutes a day · begins 11/11</span>
       </div>
       <p class="form-error" id="formError">A few required details are missing — the fields are marked above.</p>
-      <p class="form-hint">Your answers carry over automatically to the final confirmation page — you’ll simply attach your Venmo screenshot and press Submit. A Google sign‑in is required for the upload.</p>
+      <p class="form-hint">Secure checkout by Stripe — about a minute. Your spot is held the moment your payment completes. And Melissa’s promise stands: if your body doesn’t feel different after the 22 days, your $111 comes back — no questions. 🌸</p>
     </div>
   </div>
 </section>
@@ -764,20 +783,14 @@
     });
   });
 
-  var FORM='https://docs.google.com/forms/d/e/1FAIpQLSdY8jtQenbqMUI1gX9Az9YoGipDiLTPtoJAhOw_qsLkPrsKrQ/viewform';
-  var MAP={
-    'f-first':'entry.1258190577',
-    'f-last':'entry.2059643665',
-    'f-email':'entry.234812806',
-    'f-phone':'entry.1694685971',
-    'f-city':'entry.843224328',
-    'f-heard':'entry.1370926074',
-    'f-note':'entry.635798277'
-  };
+  var BACKEND='https://jasper-checkout.onrender.com';
+  fetch(BACKEND+'/health').catch(function(){});  // warm the service while they read
+
   var REQUIRED=['f-first','f-last','f-email','f-phone','f-city'];
   var err=document.getElementById('formError');
+  var btn=document.getElementById('continueBtn');
 
-  document.getElementById('continueBtn').addEventListener('click',function(){
+  btn.addEventListener('click',function(){
     var ok=true;
     REQUIRED.forEach(function(id){
       var el=document.getElementById(id);
@@ -792,16 +805,32 @@
     }else{
       radios.forEach(function(o){o.style.borderColor=''});
     }
+    err.textContent='A few required details are missing — the fields are marked above.';
     err.classList.toggle('show',!ok);
     if(!ok)return;
 
-    var params=['usp=pp_url'];
-    Object.keys(MAP).forEach(function(id){
-      var v=document.getElementById(id).value.trim();
-      if(v)params.push(MAP[id]+'='+encodeURIComponent(v));
+    btn.disabled=true;btn.style.opacity=.55;btn.textContent='One moment…';
+    fetch(BACKEND+'/lead',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        first:document.getElementById('f-first').value.trim(),
+        last:document.getElementById('f-last').value.trim(),
+        email:document.getElementById('f-email').value.trim(),
+        phone:document.getElementById('f-phone').value.trim(),
+        city:document.getElementById('f-city').value.trim(),
+        contact:contact.value,
+        heard:document.getElementById('f-heard').value.trim(),
+        note:document.getElementById('f-note').value.trim()
+      })
+    }).then(function(r){return r.json()}).then(function(d){
+      if(d.url){location.href=d.url;return;}
+      throw new Error(d.error||'no url');
+    }).catch(function(){
+      btn.disabled=false;btn.style.opacity=1;btn.textContent='Yes — I’m ready to reset';
+      err.textContent='Something hiccuped — please try again in a moment.';
+      err.classList.add('show');
     });
-    params.push('entry.1502971467='+encodeURIComponent(contact.value));
-    window.open(FORM+'?'+params.join('&'),'_blank','noopener');
   });
 
   var bar=document.getElementById('mobileCta');
